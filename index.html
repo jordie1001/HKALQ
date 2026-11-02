@@ -1,1 +1,269 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Família Pla</title>
+    <!-- Tipografia Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --primary: #6366f1;
+            --accent: #f59e0b;
+            --teia: #ec4899;
+            --guiu: #3b82f6;
+            --jordi: #10b981;
+            --mariona: #8b5cf6;
+        }
 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--card-bg);
+            padding: 25px 30px;
+            border-radius: 24px;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+        }
+
+        .clock-container h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+        }
+        .clock-container p {
+            font-weight: 600;
+            color: #64748b;
+            margin-top: 5px;
+            font-size: 1.1rem;
+        }
+
+        /* Botó d'avís de sortida d'escola */
+        .btn-alert {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            border: none;
+            padding: 18px 25px;
+            border-radius: 16px;
+            font-weight: 800;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+            transition: transform 0.1s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-alert:active { transform: scale(0.96); }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 24px;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+        }
+
+        .card h2 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Previsió del temps */
+        .weather-hours {
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+            margin-top: 15px;
+        }
+        .hour-slot {
+            background: #f8fafc;
+            padding: 12px;
+            border-radius: 14px;
+            width: 31%;
+            border: 1px solid #e2e8f0;
+        }
+        .hour-slot span { font-weight: 800; display: block; font-size: 0.85rem; color: #475569; }
+        .hour-slot p { font-size: 1.05rem; margin-top: 6px; font-weight: 600; }
+
+        /* Agenda / Esdeveniments */
+        .event-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-height: 250px;
+            overflow-y: auto;
+        }
+        .event-item {
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f8fafc;
+            border-left: 5px solid var(--primary);
+        }
+
+        /* Llista de la compra amb icones i graella */
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+        .shop-item {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            padding: 15px 10px;
+            border-radius: 16px;
+            text-align: center;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .shop-item:hover { border-color: var(--primary); background: #e0e7ff; transform: translateY(-2px); }
+        .shop-item span { font-size: 2rem; display: block; margin-bottom: 5px; }
+
+        @media(max-width: 768px) {
+            .clock-container h1 { font-size: 3rem; }
+            header { flex-direction: column; gap: 20px; text-align: center; }
+            .shop-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="clock-container">
+            <h1 id="live-clock">00:00</h1>
+            <p id="live-date">Carregant data...</p>
+        </div>
+        <button class="btn-alert" onclick="sendSchoolAlert()">
+            <span>🎒</span> Avisar: Nens cap a l'escola!
+        </button>
+    </header>
+
+    <div class="dashboard-grid">
+        
+        <!-- Previsió del temps a Girona -->
+        <div class="card">
+            <h2>🌤️ El Temps a Girona</h2>
+            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 10px;">Previsió d'avui per a planificar el dia</p>
+            <div class="weather-hours">
+                <div class="hour-slot">
+                    <span>07:00 (Sortida)</span>
+                    <p>🧥 8°C</p>
+                </div>
+                <div class="hour-slot">
+                    <span>11:00 (Matí)</span>
+                    <p>☀️ 16°C</p>
+                </div>
+                <div class="hour-slot">
+                    <span>15:00 (Tornada)</span>
+                    <p>🚶 19°C</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Google Calendar Compartit -->
+        <div class="card">
+            <h2>📅 Agenda Familiar (Google Calendar)</h2>
+            <div class="event-list" id="calendar-events">
+                <div class="event-item">
+                    <span>Carregant esdeveniments del calendari...</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Llista de la compra ràpida -->
+        <div class="card" style="grid-column: span 1;">
+            <h2>🛒 Afegir a la Compra</h2>
+            <div class="shop-grid">
+                <div class="shop-item" onclick="addToShop('Llet')"><span>🥛</span>Llet</div>
+                <div class="shop-item" onclick="addToShop('Ous')"><span>🥚</span>Ous</div>
+                <div class="shop-item" onclick="addToShop('Carn')"><span>🥩</span>Carn</div>
+                <div class="shop-item" onclick="addToShop('Pa')"><span>🥖</span>Pa</div>
+                <div class="shop-item" onclick="addToShop('Fruita')"><span>🍎</span>Fruita</div>
+                <div class="shop-item" onclick="addToShop('Neteja')"><span>🧼</span>Neteja</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Rellotge i data en temps real
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            document.getElementById('live-clock').innerText = `${hours}:${minutes}`;
+
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('live-date').innerText = now.toLocaleDateString('ca-ES', options);
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Botó d'avís de sortida cap a l'escola
+        function sendSchoolAlert() {
+            // Aquí ho connectarem més endavant a una API de notificacions o Telegram/WhatsApp bot
+            alert("✅ Avís enviat correctament als mòbils dels pares: 'Els nens han sortit de casa cap a l'escola'.");
+        }
+
+        // Funció per afegir productes a la compra
+        function addToShop(item) {
+            alert(`S'ha afegit "${item}" a la llista de la compra familiar.`);
+            // Aquí guardaríem la dada a Firebase o Google Sheets
+        }
+
+        // Carregar esdeveniments del Google Calendar compartit
+        async function loadCalendar() {
+            const container = document.getElementById('calendar-events');
+            // Nota: Per llegir directament un calendari públic/compartit de Google sense clau de servidor privada, 
+            // s'acostuma a fer servir un servei intermediari o l'API oficial de Google Calendar.
+            // De moment, deixem un exemple visual de com es mostrarà:
+            container.innerHTML = `
+                <div class="event-item" style="border-left-color: #ec4899;">
+                    <div><strong>Dansa Teia</strong><div style="font-size:0.75rem; color:#64748b;">Avui</div></div>
+                    <span style="font-weight:800;">19:30</span>
+                </div>
+                <div class="event-item" style="border-left-color: #3b82f6;">
+                    <div><strong>Anglès Guiu</strong><div style="font-size:0.75rem; color:#64748b;">Demà</div></div>
+                    <span style="font-weight:800;">17:30</span>
+                </div>
+            `;
+        }
+        loadCalendar();
+    </script>
+</body>
+</html>
