@@ -44,7 +44,7 @@
       background: linear-gradient(135deg, #0B0F17 0%, #171E2B 100%);
       border-radius: 16px;
       padding: 28px 20px 24px 20px;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -108,26 +108,26 @@
       width: 80%;
     }
 
-    /* MÒDUL SEPARAT DE LA CALCULADORA */
+    /* MÒDUL SEPARAT DE LA CALCULADORA AMB COLOR DE FONS */
     .converter-bar {
-      margin-bottom: 16px;
+      margin-bottom: 18px;
       display: flex;
       justify-content: center;
     }
 
     .btn-converter-trigger {
       width: 100%;
-      background: #FFFFFF;
-      border: 1px solid var(--border-color);
-      color: var(--bg);
-      padding: 12px 16px;
+      background: linear-gradient(135deg, #FF5E7E 0%, #FF6B6B 100%);
+      border: none;
+      color: #FFFFFF;
+      padding: 13px 18px;
       border-radius: 12px;
-      font-size: 0.85rem;
-      font-weight: 800;
-      letter-spacing: 0.05em;
+      font-size: 0.88rem;
+      font-weight: 900;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       cursor: pointer;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      box-shadow: 0 4px 14px rgba(255, 94, 126, 0.4);
       transition: all 0.2s ease;
       display: flex;
       align-items: center;
@@ -136,16 +136,16 @@
     }
 
     .btn-converter-trigger:active {
-      transform: scale(0.98);
-      background: #F8FAFC;
+      transform: scale(0.97);
+      box-shadow: 0 2px 8px rgba(255, 94, 126, 0.3);
     }
 
-    /* MODAL DEL CONVERTIDOR */
+    /* MODAL CALCULADORA ESTÈTICA FÍSICA */
     .converter-modal-overlay {
       display: none;
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(11, 15, 23, 0.75);
+      background: rgba(11, 15, 23, 0.8);
       backdrop-filter: blur(6px);
       z-index: 1000;
       justify-content: center;
@@ -157,117 +157,135 @@
       display: flex;
     }
 
-    .converter-card {
-      background: #FFFFFF;
-      border-radius: 16px;
+    .calc-body {
+      background: #1A202C;
+      border-radius: 20px;
       width: 100%;
-      max-width: 380px;
+      max-width: 340px;
       padding: 20px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      border: 2px solid rgba(255, 255, 255, 0.1);
       position: relative;
     }
 
-    .converter-header {
+    .calc-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 16px;
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 10px;
+      margin-bottom: 14px;
     }
 
-    .converter-header h3 {
-      font-size: 1rem;
+    .calc-header h3 {
+      font-size: 0.85rem;
       font-weight: 800;
-      color: var(--bg);
+      color: #E2E8F0;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.08em;
     }
 
     .btn-close-modal {
-      background: #EDF2F7;
+      background: rgba(255, 255, 255, 0.1);
       border: none;
       width: 28px;
       height: 28px;
       border-radius: 50%;
       font-weight: 800;
-      color: var(--text-muted);
+      color: #A0AEC0;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    .conv-field {
-      margin-bottom: 12px;
+    /* PANTALLA DIGITAL CALCULADORA */
+    .calc-display {
+      background: #0F172A;
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-bottom: 14px;
+      border: 1px solid #334155;
+      text-align: right;
     }
 
-    .conv-field label {
-      display: block;
+    .calc-display-mode {
       font-size: 0.7rem;
       font-weight: 800;
-      color: var(--text-muted);
+      color: #FF5E7E;
       text-transform: uppercase;
+      letter-spacing: 0.05em;
       margin-bottom: 4px;
-    }
-
-    .conv-input-group {
       display: flex;
-      align-items: center;
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 0 10px;
-      background: #F8FAFC;
+      justify-content: space-between;
     }
 
-    .conv-input-group input {
-      width: 100%;
-      padding: 10px 0;
-      border: none;
-      background: transparent;
+    .calc-display-input {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: #FFFFFF;
+      min-height: 36px;
+      word-break: break-all;
+      line-height: 1.1;
+    }
+
+    .calc-display-result {
       font-size: 1.1rem;
       font-weight: 700;
-      color: var(--text-dark);
-      outline: none;
-    }
-
-    .conv-input-group .currency-symbol {
-      font-size: 0.85rem;
-      font-weight: 800;
-      color: var(--text-muted);
-      margin-left: 6px;
-    }
-
-    .converter-actions {
-      display: flex;
-      justify-content: flex-end;
+      color: #38BDF8;
       margin-top: 4px;
-      margin-bottom: 8px;
+      min-height: 24px;
     }
 
-    .btn-clear-conv {
-      background: #FF6B6B;
+    /* TECLAT NUMÈRIC FÍSIC */
+    .calc-keypad {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .calc-btn {
+      background: #2D3748;
       color: #FFFFFF;
       border: none;
-      font-size: 0.85rem;
+      border-radius: 10px;
+      font-size: 1.25rem;
       font-weight: 800;
-      padding: 6px 16px;
-      border-radius: 8px;
+      padding: 14px 0;
       cursor: pointer;
-      box-shadow: 0 2px 6px rgba(255, 107, 107, 0.3);
-      transition: all 0.15s ease;
+      box-shadow: 0 4px 0 #1A202C;
+      transition: all 0.1s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .btn-clear-conv:active {
-      transform: scale(0.94);
-      background: #E05252;
+    .calc-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #1A202C;
     }
 
-    .conv-rate-info {
-      font-size: 0.7rem;
-      color: var(--text-muted);
+    .calc-btn-clear {
+      background: #FF6B6B;
+      color: #FFFFFF;
+      box-shadow: 0 4px 0 #9B2C2C;
+    }
+
+    .calc-btn-clear:active {
+      box-shadow: 0 1px 0 #9B2C2C;
+    }
+
+    .calc-btn-switch {
+      background: #4A5568;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #CBD5E0;
+    }
+
+    .calc-rate-info {
+      font-size: 0.68rem;
+      color: #94A3B8;
       text-align: center;
-      margin-top: 8px;
+      margin-top: 12px;
       font-weight: 600;
     }
 
@@ -382,43 +400,58 @@
     </div>
   </header>
 
-  <!-- MÒDUL SEPARAT DE LA CALCULADORA DE MONEDA -->
+  <!-- MÒDUL DE LA CALCULADORA AMB FONS DESTACAT -->
   <div class="converter-bar">
     <button class="btn-converter-trigger" onclick="openConverter()">
-      💱 Convertidor EUR ⇄ HKD
+      💱 Calculadora Canvi EUR ⇄ HKD
     </button>
   </div>
 
-  <!-- MODAL FLOTANT DEL CONVERTIDOR -->
+  <!-- MODAL CALCULADORA FÍSICA -->
   <div id="converterModal" class="converter-modal-overlay" onclick="closeConverterOnBackdrop(event)">
-    <div class="converter-card">
-      <div class="converter-header">
+    <div class="calc-body">
+      <div class="calc-header">
         <h3>💱 Canvi de Moneda</h3>
         <button class="btn-close-modal" onclick="closeConverter()">✕</button>
       </div>
 
-      <div class="conv-field">
-        <label for="eurInput">Euros (EUR €)</label>
-        <div class="conv-input-group">
-          <input type="number" id="eurInput" placeholder="0" oninput="convertEurToHkd()">
-          <span class="currency-symbol">EUR €</span>
+      <!-- PANTALLA DIGITAL -->
+      <div class="calc-display">
+        <div class="calc-display-mode">
+          <span id="modeLabel">EUR ➔ HKD</span>
+          <span id="modeSymbol">€</span>
         </div>
+        <div class="calc-display-input" id="calcInput">0</div>
+        <div class="calc-display-result" id="calcResult">= 0.00 HKD $</div>
       </div>
 
-      <div class="conv-field">
-        <label for="hkdInput">Dòlars de Hong Kong (HKD $)</label>
-        <div class="conv-input-group">
-          <input type="number" id="hkdInput" placeholder="0" oninput="convertHkdToEur()">
-          <span class="currency-symbol">HKD $</span>
-        </div>
+      <!-- TECLAT NUMÈRIC -->
+      <div class="calc-keypad">
+        <button class="calc-btn" onclick="pressKey('7')">7</button>
+        <button class="calc-btn" onclick="pressKey('8')">8</button>
+        <button class="calc-btn" onclick="pressKey('9')">9</button>
+        
+        <button class="calc-btn" onclick="pressKey('4')">4</button>
+        <button class="calc-btn" onclick="pressKey('5')">5</button>
+        <button class="calc-btn" onclick="pressKey('6')">6</button>
+        
+        <button class="calc-btn" onclick="pressKey('1')">1</button>
+        <button class="calc-btn" onclick="pressKey('2')">2</button>
+        <button class="calc-btn" onclick="pressKey('3')">3</button>
+        
+        <button class="calc-btn calc-btn-clear" onclick="clearCalc()">C</button>
+        <button class="calc-btn" onclick="pressKey('0')">0</button>
+        <button class="calc-btn" onclick="pressKey('.')">.</button>
       </div>
 
-      <!-- BOTÓ C DE BORRAR -->
-      <div class="converter-actions">
-        <button class="btn-clear-conv" onclick="clearConverter()">C • Borrar</button>
+      <!-- BOTÓ PER CANVIAR EL SENTIT DEL CANVI -->
+      <div style="margin-top: 10px;">
+        <button class="calc-btn calc-btn-switch" style="width:100%; font-size:0.8rem; padding:10px 0;" onclick="switchMode()">
+          🔄 Canviar a <span id="switchTargetLabel">HKD ➔ EUR</span>
+        </button>
       </div>
 
-      <div class="conv-rate-info" id="rateInfo">
+      <div class="calc-rate-info" id="rateInfo">
         Carregant tipus de canvi en temps real...
       </div>
     </div>
@@ -586,6 +619,8 @@
 
   <script>
     let eurToHkdRate = 8.45;
+    let currentInput = "0";
+    let isEurToHkd = true; // true: EUR -> HKD, false: HKD -> EUR
 
     async function fetchExchangeRate() {
       try {
@@ -593,16 +628,17 @@
         const data = await response.json();
         if (data && data.rates && data.rates.HKD) {
           eurToHkdRate = data.rates.HKD;
-          document.getElementById('rateInfo').innerText = `Tipus de canvi actualitzat: 1 EUR = ${eurToHkdRate.toFixed(2)} HKD`;
+          document.getElementById('rateInfo').innerText = `Canvi actualitzat: 1 EUR = ${eurToHkdRate.toFixed(2)} HKD`;
         }
       } catch (error) {
-        document.getElementById('rateInfo').innerText = `Tipus de canvi estimat: 1 EUR = ${eurToHkdRate.toFixed(2)} HKD`;
+        document.getElementById('rateInfo').innerText = `Canvi estimat: 1 EUR = ${eurToHkdRate.toFixed(2)} HKD`;
       }
     }
 
     function openConverter() {
       document.getElementById('converterModal').classList.add('active');
       fetchExchangeRate();
+      updateCalcDisplay();
     }
 
     function closeConverter() {
@@ -615,27 +651,56 @@
       }
     }
 
-    function convertEurToHkd() {
-      const eurVal = parseFloat(document.getElementById('eurInput').value);
-      if (!isNaN(eurVal)) {
-        document.getElementById('hkdInput').value = (eurVal * eurToHkdRate).toFixed(2);
+    function pressKey(key) {
+      if (key === '.') {
+        if (currentInput.includes('.')) return;
+        currentInput += '.';
       } else {
-        document.getElementById('hkdInput').value = '';
+        if (currentInput === "0") {
+          currentInput = key;
+        } else {
+          currentInput += key;
+        }
       }
+      updateCalcDisplay();
     }
 
-    function convertHkdToEur() {
-      const hkdVal = parseFloat(document.getElementById('hkdInput').value);
-      if (!isNaN(hkdVal)) {
-        document.getElementById('eurInput').value = (hkdVal / eurToHkdRate).toFixed(2);
-      } else {
-        document.getElementById('eurInput').value = '';
-      }
+    function clearCalc() {
+      currentInput = "0";
+      updateCalcDisplay();
     }
 
-    function clearConverter() {
-      document.getElementById('eurInput').value = '';
-      document.getElementById('hkdInput').value = '';
+    function switchMode() {
+      isEurToHkd = !isEurToHkd;
+      currentInput = "0";
+      
+      const modeLabel = document.getElementById('modeLabel');
+      const modeSymbol = document.getElementById('modeSymbol');
+      const switchTargetLabel = document.getElementById('switchTargetLabel');
+
+      if (isEurToHkd) {
+        modeLabel.innerText = "EUR ➔ HKD";
+        modeSymbol.innerText = "€";
+        switchTargetLabel.innerText = "HKD ➔ EUR";
+      } else {
+        modeLabel.innerText = "HKD ➔ EUR";
+        modeSymbol.innerText = "$";
+        switchTargetLabel.innerText = "EUR ➔ HKD";
+      }
+      updateCalcDisplay();
+    }
+
+    function updateCalcDisplay() {
+      document.getElementById('calcInput').innerText = currentInput;
+      const numVal = parseFloat(currentInput) || 0;
+      
+      if (isEurToHkd) {
+        const res = (numVal * eurToHkdRate).toFixed(2);
+        document.getElementById('calcResult').innerText = `= ${res} HKD $`;
+      } else {
+        const res = (numVal / eurToHkdRate).toFixed(2);
+        document.getElementById('calcResult').innerText = `= ${res} EUR €`;
+      }
     }
   </script>
 
