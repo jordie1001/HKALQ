@@ -12,12 +12,13 @@
       --text-muted: #6C757D;
       --border-color: #E2E8F0;
       
-      --color-day1: #FF6B6B;
-      --color-day2: #FFB84D;
-      --color-day3: #6BCB77;
-      --color-day4: #4D96FF;
-      --color-day5: #E87ABF;
-      --color-custom: #9B51E0;
+      --color-day1: #FF6B6B; /* DÍA 09 */
+      --color-day2: #FFB84D; /* DÍA 10 */
+      --color-day3: #6BCB77; /* DÍA 11 */
+      --color-day4: #4D96FF; /* DÍA 12 */
+      --color-day5: #9B51E0; /* DÍA 13 */
+      --color-day6: #E87ABF; /* DÍA 14 */
+      --color-custom: #00B4D8; /* EXTRA */
 
       --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
@@ -229,11 +230,17 @@
       font-weight: 600;
     }
 
+    .info-value.jetlag-tip {
+      color: #C53030;
+      font-weight: 600;
+    }
+
     .bg-day1 { background-color: var(--color-day1); }
     .bg-day2 { background-color: var(--color-day2); }
     .bg-day3 { background-color: var(--color-day3); }
     .bg-day4 { background-color: var(--color-day4); }
     .bg-day5 { background-color: var(--color-day5); }
+    .bg-day6 { background-color: var(--color-day6); }
     .bg-custom { background-color: var(--color-custom); }
 
     footer {
@@ -278,16 +285,38 @@
 
   <div id="customContainer"></div>
 
-  <!-- DÍA 01 -->
+  <!-- DÍA 09 -->
   <div class="day-row">
     <div class="day-badge bg-day1">
       <span class="day-label">DÍA</span>
-      <span class="day-num">01</span>
+      <span class="day-num">09</span>
+    </div>
+    <div class="day-content">
+      <div class="info-item">
+        <span class="info-label">Viajar:</span>
+        <span class="info-value">10:00h Sortida BCN ✈️ Escala Abu Dabi (17h - 19h)</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Comida:</span>
+        <span class="info-value">Dinar lleuger al primer vol / Sopar lleuger a Abu Dabi</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Jetlag Tip:</span>
+        <span class="info-value jetlag-tip">Dormir el màxim possible al 2n vol (Abu Dabi ➔ HK)!</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- DÍA 10 -->
+  <div class="day-row">
+    <div class="day-badge bg-day2">
+      <span class="day-label">DÍA</span>
+      <span class="day-num">10</span>
     </div>
     <div class="day-content">
       <div class="info-item">
         <span class="info-label">Matí (Fira):</span>
-        <span class="info-value"><a href="https://www.google.com/maps/search/?api=1&query=AsiaWorld-Expo+Hong+Kong" target="_blank">AsiaWorld-Expo ↗</a></span>
+        <span class="info-value">Arribada 07:00h HK ➔ <a href="https://www.google.com/maps/search/?api=1&query=AsiaWorld-Expo+Hong+Kong" target="_blank">AsiaWorld-Expo ↗</a></span>
       </div>
       <div class="info-item">
         <span class="info-label">Destí:</span>
@@ -301,14 +330,18 @@
         <span class="info-label">El ocio:</span>
         <span class="info-value">Street Food & Ladies' Market</span>
       </div>
+      <div class="info-item">
+        <span class="info-label">Jetlag Tip:</span>
+        <span class="info-value jetlag-tip">Res de migdiada! Aguantar desperts fins a les 22:00h.</span>
+      </div>
     </div>
   </div>
 
-  <!-- DÍA 02 -->
+  <!-- DÍA 11 -->
   <div class="day-row">
-    <div class="day-badge bg-day2">
+    <div class="day-badge bg-day3">
       <span class="day-label">DÍA</span>
-      <span class="day-num">02</span>
+      <span class="day-num">11</span>
     </div>
     <div class="day-content">
       <div class="info-item">
@@ -330,11 +363,11 @@
     </div>
   </div>
 
-  <!-- DÍA 03 -->
+  <!-- DÍA 12 -->
   <div class="day-row">
-    <div class="day-badge bg-day3">
+    <div class="day-badge bg-day4">
       <span class="day-label">DÍA</span>
-      <span class="day-num">03</span>
+      <span class="day-num">12</span>
     </div>
     <div class="day-content">
       <div class="info-item">
@@ -356,11 +389,11 @@
     </div>
   </div>
 
-  <!-- DÍA 04 -->
+  <!-- DÍA 13 -->
   <div class="day-row">
-    <div class="day-badge bg-day4">
+    <div class="day-badge bg-day5">
       <span class="day-label">DÍA</span>
-      <span class="day-num">04</span>
+      <span class="day-num">13</span>
     </div>
     <div class="day-content">
       <div class="info-item">
@@ -382,11 +415,11 @@
     </div>
   </div>
 
-  <!-- DÍA 05 -->
+  <!-- DÍA 14 -->
   <div class="day-row">
-    <div class="day-badge bg-day5">
+    <div class="day-badge bg-day6">
       <span class="day-label">DÍA</span>
-      <span class="day-num">05</span>
+      <span class="day-num">14</span>
     </div>
     <div class="day-content">
       <div class="info-item">
@@ -395,7 +428,11 @@
       </div>
       <div class="info-item">
         <span class="info-label">Viajar:</span>
-        <span class="info-value"><a href="https://www.google.com/maps/search/?api=1&query=Hong+Kong+International+Airport" target="_blank">Aeroport HK ↗</a> (Vol de tornada)</span>
+        <span class="info-value"><a href="https://www.google.com/maps/search/?api=1&query=Hong+Kong+International+Airport" target="_blank">Aeroport HK ↗</a> (Vol tarda) ➔ Barcelona</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Jetlag Tip:</span>
+        <span class="info-value jetlag-tip">Sopar al vol i sincronitzar el son amb l'horari de BCN.</span>
       </div>
     </div>
   </div>
