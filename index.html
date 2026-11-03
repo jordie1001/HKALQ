@@ -43,8 +43,8 @@
     .hero-header {
       background: linear-gradient(135deg, #0B0F17 0%, #171E2B 100%);
       border-radius: 16px;
-      padding: 24px 20px 20px 20px;
-      margin-bottom: 20px;
+      padding: 28px 20px 24px 20px;
+      margin-bottom: 12px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -108,28 +108,36 @@
       width: 80%;
     }
 
-    /* BOTÓ DEL CONVERTIDOR */
+    /* MÒDUL SEPARAT DE LA CALCULADORA */
+    .converter-bar {
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: center;
+    }
+
     .btn-converter-trigger {
-      margin-top: 14px;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      color: #FFFFFF;
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-size: 0.78rem;
-      font-weight: 700;
+      width: 100%;
+      background: #FFFFFF;
+      border: 1px solid var(--border-color);
+      color: var(--bg);
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      font-weight: 800;
       letter-spacing: 0.05em;
+      text-transform: uppercase;
       cursor: pointer;
-      backdrop-filter: blur(5px);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
       transition: all 0.2s ease;
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 6px;
+      justify-content: center;
+      gap: 8px;
     }
 
     .btn-converter-trigger:active {
-      transform: scale(0.96);
-      background: rgba(255, 255, 255, 0.2);
+      transform: scale(0.98);
+      background: #F8FAFC;
     }
 
     /* MODAL DEL CONVERTIDOR */
@@ -230,11 +238,36 @@
       margin-left: 6px;
     }
 
+    .converter-actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 4px;
+      margin-bottom: 8px;
+    }
+
+    .btn-clear-conv {
+      background: #FF6B6B;
+      color: #FFFFFF;
+      border: none;
+      font-size: 0.85rem;
+      font-weight: 800;
+      padding: 6px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(255, 107, 107, 0.3);
+      transition: all 0.15s ease;
+    }
+
+    .btn-clear-conv:active {
+      transform: scale(0.94);
+      background: #E05252;
+    }
+
     .conv-rate-info {
       font-size: 0.7rem;
       color: var(--text-muted);
       text-align: center;
-      margin-top: 10px;
+      margin-top: 8px;
       font-weight: 600;
     }
 
@@ -340,19 +373,21 @@
 </head>
 <body>
 
-  <!-- CAPÇALERA -->
+  <!-- CAPÇALERA HONG KONG -->
   <header class="hero-header">
     <div class="hero-title-group">
       <div class="chinese-title">香港</div>
       <h1 class="top-main-title">HONGKONG</h1>
       <div class="subtitle-badge">Planificador d'itinerari</div>
-      
-      <!-- BOTÓ D'OBRIR CONVERTIDOR -->
-      <button class="btn-converter-trigger" onclick="openConverter()">
-        🔱 Convertidor EUR ⇄ HKD
-      </button>
     </div>
   </header>
+
+  <!-- MÒDUL SEPARAT DE LA CALCULADORA DE MONEDA -->
+  <div class="converter-bar">
+    <button class="btn-converter-trigger" onclick="openConverter()">
+      💱 Convertidor EUR ⇄ HKD
+    </button>
+  </div>
 
   <!-- MODAL FLOTANT DEL CONVERTIDOR -->
   <div id="converterModal" class="converter-modal-overlay" onclick="closeConverterOnBackdrop(event)">
@@ -376,6 +411,11 @@
           <input type="number" id="hkdInput" placeholder="0" oninput="convertHkdToEur()">
           <span class="currency-symbol">HKD $</span>
         </div>
+      </div>
+
+      <!-- BOTÓ C DE BORRAR -->
+      <div class="converter-actions">
+        <button class="btn-clear-conv" onclick="clearConverter()">C • Borrar</button>
       </div>
 
       <div class="conv-rate-info" id="rateInfo">
@@ -545,7 +585,7 @@
   </footer>
 
   <script>
-    let eurToHkdRate = 8.45; // Valor per defecte si no hi ha connexió
+    let eurToHkdRate = 8.45;
 
     async function fetchExchangeRate() {
       try {
@@ -591,6 +631,11 @@
       } else {
         document.getElementById('eurInput').value = '';
       }
+    }
+
+    function clearConverter() {
+      document.getElementById('eurInput').value = '';
+      document.getElementById('hkdInput').value = '';
     }
   </script>
 
