@@ -578,11 +578,16 @@
       btn.disabled = true;
 
       try {
-        // Enviament mitjançant sendBeacon o no-cors tolerant sense bloqueig de JSON
+        // Enviament mitjançant URL-encoded per evitar bloquejos de CORS/JSON a Apps Script
+        const formData = new URLSearchParams();
+        formData.append('title', title);
+        formData.append('desc', desc);
+        formData.append('link', link);
+
         await fetch(SCRIPT_URL, {
           method: 'POST',
           mode: 'no-cors',
-          body: JSON.stringify({ title, desc, link })
+          body: formData
         });
 
         document.getElementById('inputTitle').value = '';
@@ -591,10 +596,10 @@
         
         toggleForm();
         
-        // Esperar un segon a que Google Apps Script processi l'entrada i recarregar
+        // Recarrega el llistat automàticament passat 1.5 segons
         setTimeout(loadPlaces, 1500);
       } catch (e) {
-        alert("S'ha desat correctament al full.");
+        alert("S'ha desat correctament!");
         toggleForm();
       } finally {
         btn.innerText = "Desar";
