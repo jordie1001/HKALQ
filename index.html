@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Planificador de Itinerari - Hong Kong</title>
+  <title>Planificador de Itinerario - Hong Kong</title>
   <style>
     :root {
       --bg: #1E232A;
@@ -201,36 +201,43 @@
       padding: 12px 14px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      gap: 6px;
+      gap: 8px;
     }
 
-    .info-item {
+    .activity-item {
       display: flex;
-      align-items: baseline;
-      font-size: 0.82rem;
+      flex-direction: column;
+      font-size: 0.85rem;
+      border-bottom: 1px solid #F1F5F9;
+      padding-bottom: 6px;
     }
 
-    .info-label {
+    .activity-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .activity-category {
+      font-size: 0.7rem;
       font-weight: 800;
-      width: 75px;
-      min-width: 75px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      margin-bottom: 1px;
+    }
+
+    .activity-desc {
       color: var(--text-dark);
-      font-size: 0.78rem;
+      font-weight: 500;
     }
 
-    .info-value {
-      color: #4A5568;
-      flex: 1;
-    }
-
-    .info-value a {
+    .activity-desc a {
       color: #2B6CB0;
       text-decoration: none;
       font-weight: 600;
     }
 
-    .info-value.jetlag-tip {
+    .activity-desc.jetlag-tip {
       color: #C53030;
       font-weight: 600;
     }
@@ -292,17 +299,17 @@
       <span class="day-num">09</span>
     </div>
     <div class="day-content">
-      <div class="info-item">
-        <span class="info-label">Viajar:</span>
-        <span class="info-value">10:00h Sortida BCN ✈️ Escala Abu Dabi (17h - 19h)</span>
+      <div class="activity-item">
+        <span class="activity-category">✈️ Viatjar</span>
+        <span class="activity-desc">10:00h Sortida BCN ➔ Escala a Abu Dabi (17:00h - 19:00h)</span>
       </div>
-      <div class="info-item">
-        <span class="info-label">Comida:</span>
-        <span class="info-value">Dinar lleuger al primer vol / Sopar lleuger a Abu Dabi</span>
+      <div class="activity-item">
+        <span class="activity-category">🍜 Menjar</span>
+        <span class="activity-desc">Dinar lleuger al primer vol i sopar ràpid a l'escala d'Abu Dabi.</span>
       </div>
-      <div class="info-item">
-        <span class="info-label">Jetlag Tip:</span>
-        <span class="info-value jetlag-tip">Dormir el màxim possible al 2n vol (Abu Dabi ➔ HK)!</span>
+      <div class="activity-item">
+        <span class="activity-category">💡 Jetlag / Descans</span>
+        <span class="activity-desc jetlag-tip">Dormir tant com es pugui durant el segon vol (Abu Dabi ➔ HK).</span>
       </div>
     </div>
   </div>
@@ -314,25 +321,25 @@
       <span class="day-num">10</span>
     </div>
     <div class="day-content">
-      <div class="info-item">
-        <span class="info-label">Matí (Fira):</span>
-        <span class="info-value">Arribada 07:00h HK ➔ <a href="https://www.google.com/maps/search/?api=1&query=AsiaWorld-Expo+Hong+Kong" target="_blank">AsiaWorld-Expo ↗</a></span>
+      <div class="activity-item">
+        <span class="activity-category">🏛️ Fira & Visitar</span>
+        <span class="activity-desc">Arribada 07:00h a HK ➔ <a href="https://www.google.com/maps/search/?api=1&query=AsiaWorld-Expo+Hong+Kong" target="_blank">AsiaWorld-Expo ↗</a></span>
       </div>
-      <div class="info-item">
-        <span class="info-label">Destí:</span>
-        <span class="info-value"><a href="https://www.google.com/maps/search/?api=1&query=Ladies+Market+Mong+Kok+Hong+Kong" target="_blank">Mong Kok ↗</a></span>
+      <div class="activity-item">
+        <span class="activity-category">🛍️ Comprar</span>
+        <span class="activity-desc"><a href="https://www.google.com/maps/search/?api=1&query=Ladies+Market+Mong+Kok+Hong+Kong" target="_blank">Mong Kok & Ladies' Market ↗</a> (Paradetes i regals)</span>
       </div>
-      <div class="info-item">
-        <span class="info-label">Comida:</span>
-        <span class="info-value"><a href="https://www.google.com/maps/search/?api=1&query=Temple+Street+Night+Market+Hong+Kong" target="_blank">Dai Pai Dong (Temple St.) ↗</a></span>
+      <div class="activity-item">
+        <span class="activity-category">🍜 Menjar</span>
+        <span class="activity-desc"><a href="https://www.google.com/maps/search/?api=1&query=Temple+Street+Night+Market+Hong+Kong" target="_blank">Temple Street Night Market (Dai Pai Dong) ↗</a></span>
       </div>
-      <div class="info-item">
-        <span class="info-label">El ocio:</span>
-        <span class="info-value">Street Food & Ladies' Market</span>
+      <div class="activity-item">
+        <span class="activity-category">📷 Fotografia / Oci</span>
+        <span class="activity-desc">Street food local (curry fish balls i bubble waffles) a Mong Kok.</span>
       </div>
-      <div class="info-item">
-        <span class="info-label">Jetlag Tip:</span>
-        <span class="info-value jetlag-tip">Res de migdiada! Aguantar desperts fins a les 22:00h.</span>
+      <div class="activity-item">
+        <span class="activity-category">💡 Jetlag / Descans</span>
+        <span class="activity-desc jetlag-tip">Prohibit fer migdiada! Aguantar desperts fins a les 22:00h hora local.</span>
       </div>
     </div>
   </div>
@@ -344,21 +351,21 @@
       <span class="day-num">11</span>
     </div>
     <div class="day-content">
-      <div class="info-item">
-        <span class="info-label">Matí (Fira):</span>
-        <span class="info-value"><a href="https://www.google.com/maps/search/?api=1&query=AsiaWorld-Expo+Hong+Kong" target="_blank">AsiaWorld-Expo ↗</a></span>
+      <div class="activity-item">
+        <span class="activity-category">🏛️ Fira & Visitar</span>
+        <span class="activity-desc">Matí a <a href="https://www.google.com/maps/search/?api=1&query=AsiaWorld-Expo+Hong+Kong" target="_blank">AsiaWorld-Expo ↗</a></span>
       </div>
-      <div class="info-item">
-        <span class="info-label">Destí:</span>
-        <span class="info-value"><a href="https://www.google.com/maps/search/?api=1&query=Avenue+of+Stars+Tsim+Sha+Tsui+Hong+Kong" target="_blank">Tsim Sha Tsui / Port ↗</a></span>
+      <div class="activity-item">
+        <span class="activity-category">🛍️ Comprar</span>
+        <span class="activity-desc"><a href="https://www.google.com/maps/search/?api=1&query=Harbour+City+Hong+Kong" target="_blank">Harbour City ↗</a> i <a href="https://www.google.com/maps/search/?api=1&query=K11+MUSEA+Hong+Kong" target="_blank">K11 MUSEA ↗</a></span>
       </div>
-      <div class="info-item">
-        <span class="info-label">Compres:</span>
-        <span class="info-value"><a href="https://www.google.com/maps/search/?api=1&query=Harbour+City+Hong+Kong" target="_blank">Harbour City ↗</a> / <a href="https://www.google.com/maps/search/?api=1&query=K11+MUSEA+Hong+Kong" target="_blank">K11 MUSEA ↗</a></span>
+      <div class="activity-item">
+        <span class="activity-category">🍜 Menjar</span>
+        <span class="activity-desc">Sopar de cuina cantonesa o dim sum clàssic al port.</span>
       </div>
-      <div class="info-item">
-        <span class="info-label">El ocio:</span>
-        <span class="info-value">Skyline & Espectacle Llums (20h)</span>
+      <div class="activity-item">
+        <span class="activity-category">📷 Fotografia / Oci</span>
+        <span class="activity-desc"><a href="https://www.google.com/maps/search/?api=1&query=Avenue+of+Stars+Tsim+Sha+Tsui+Hong+Kong" target="_blank">Avenue of Stars ↗</a> (Skylines i espectacle de llums a les 20h).</span>
       </div>
     </div>
   </div>
@@ -370,21 +377,21 @@
       <span class="day-num">12</span>
     </div>
     <div class="day-content">
-      <div class="info-item">
-        <span class="info-label">Matí (Fira):</span>
-        <span class="info-value"><a href="https://www.google.com/maps/search/?api=1&query=AsiaWorld-Expo+Hong+Kong" target="_blank">AsiaWorld-Expo ↗</a></span>
+      <div class="activity-item">
+        <span class="activity-category">🏛️ Fira & Visitar</span>
+        <span class="activity-desc">Matí a <a href="https://www.google.com/maps/search/?api=1&query=AsiaWorld-Expo+Hong+Kong" target="_blank">AsiaWorld-Expo ↗</a></span>
       </div>
-      <div class="info-item">
-        <span class="info-label">Destí:</span>
-        <span class="info-value"><a href="https://www.google.com/maps/search/?api=1&query=Central+Hong+Kong" target="_blank">Central & Sheung Wan ↗</a></span>
+      <div class="activity-item">
+        <span class="activity-category">🛍️ Comprar</span>
+        <span class="activity-desc"><a href="https://www.google.com/maps/search/?api=1&query=Graham+Street+Market+Hong+Kong" target="_blank">Graham Street Market & Sheung Wan ↗</a></span>
       </div>
-      <div class="info-item">
-        <span class="info-label">Visita:</span>
-        <span class="info-value"><a href="https://www.google.com/maps/search/?api=1&query=Graham+Street+Market+Hong+Kong" target="_blank">Graham St. Market ↗</a></span>
+      <div class="activity-item">
+        <span class="activity-category">🍜 Menjar</span>
+        <span class="activity-desc">Pastisseries tradicionals (Egg tarts i Pineapple buns).</span>
       </div>
-      <div class="info-item">
-        <span class="info-label">El ocio:</span>
-        <span class="info-value"><a href="https://www.google.com/maps/search/?api=1&query=Victoria+Peak+Hong+Kong" target="_blank">Peak Tram & Victoria Peak ↗</a></span>
+      <div class="activity-item">
+        <span class="activity-category">📷 Fotografia / Oci</span>
+        <span class="activity-desc"><a href="https://www.google.com/maps/search/?api=1&query=Victoria+Peak+Hong+Kong" target="_blank">Peak Tram i Victoria Peak ↗</a> (Panoràmica nocturna).</span>
       </div>
     </div>
   </div>
@@ -396,21 +403,21 @@
       <span class="day-num">13</span>
     </div>
     <div class="day-content">
-      <div class="info-item">
-        <span class="info-label">Matí (Fira):</span>
-        <span class="info-value"><a href="https://www.google.com/maps/search/?api=1&query=AsiaWorld-Expo+Hong+Kong" target="_blank">AsiaWorld-Expo ↗</a></span>
+      <div class="activity-item">
+        <span class="activity-category">🏛️ Fira & Visitar</span>
+        <span class="activity-desc">Matí a <a href="https://www.google.com/maps/search/?api=1&query=AsiaWorld-Expo+Hong+Kong" target="_blank">AsiaWorld-Expo ↗</a></span>
       </div>
-      <div class="info-item">
-        <span class="info-label">Destí:</span>
-        <span class="info-value">Pendent / Lliure</span>
+      <div class="activity-item">
+        <span class="activity-category">🛍️ Comprar</span>
+        <span class="activity-desc">Últimes compres i records per a la maleta.</span>
       </div>
-      <div class="info-item">
-        <span class="info-label">Comida:</span>
-        <span class="info-value">Dim Sum Local</span>
+      <div class="activity-item">
+        <span class="activity-category">🍜 Menjar</span>
+        <span class="activity-desc">Sopar lliure / elecció del grup.</span>
       </div>
-      <div class="info-item">
-        <span class="info-label">El ocio:</span>
-        <span class="info-value">Últimes compres</span>
+      <div class="activity-item">
+        <span class="activity-category">📷 Fotografia / Oci</span>
+        <span class="activity-desc">Passejada lliure per la ciutat.</span>
       </div>
     </div>
   </div>
@@ -422,17 +429,17 @@
       <span class="day-num">14</span>
     </div>
     <div class="day-content">
-      <div class="info-item">
-        <span class="info-label">Matí:</span>
-        <span class="info-value">Tancament Fira / Recollida</span>
+      <div class="activity-item">
+        <span class="activity-category">🏛️ Fira & Visitar</span>
+        <span class="activity-desc">Tancament de fira i recollida d'equipatge.</span>
       </div>
-      <div class="info-item">
-        <span class="info-label">Viajar:</span>
-        <span class="info-value"><a href="https://www.google.com/maps/search/?api=1&query=Hong+Kong+International+Airport" target="_blank">Aeroport HK ↗</a> (Vol tarda) ➔ Barcelona</span>
+      <div class="activity-item">
+        <span class="activity-category">✈️ Viatjar</span>
+        <span class="activity-desc"><a href="https://www.google.com/maps/search/?api=1&query=Hong+Kong+International+Airport" target="_blank">Aeroport HK ↗</a> ➔ Vol de tarda cap a Barcelona.</span>
       </div>
-      <div class="info-item">
-        <span class="info-label">Jetlag Tip:</span>
-        <span class="info-value jetlag-tip">Sopar al vol i sincronitzar el son amb l'horari de BCN.</span>
+      <div class="activity-item">
+        <span class="activity-category">💡 Jetlag / Descans</span>
+        <span class="activity-desc jetlag-tip">Sopar al vol i adaptar gradualment el rellotge a l'horari de Barcelona.</span>
       </div>
     </div>
   </div>
@@ -465,17 +472,17 @@
               <span class="day-num">+${index + 1}</span>
             </div>
             <div class="day-content">
-              <div class="info-item">
-                <span class="info-label">Destí:</span>
-                <span class="info-value"><strong>${escapeHtml(place.title)}</strong></span>
+              <div class="activity-item">
+                <span class="activity-category">📍 Destí Compartit</span>
+                <span class="activity-desc"><strong>${escapeHtml(place.title)}</strong></span>
               </div>
-              <div class="info-item">
-                <span class="info-label">Detalls:</span>
-                <span class="info-value">${escapeHtml(place.desc)}</span>
+              <div class="activity-item">
+                <span class="activity-category">📝 Detalls</span>
+                <span class="activity-desc">${escapeHtml(place.desc)}</span>
               </div>
-              <div class="info-item">
-                <span class="info-label">Map:</span>
-                <span class="info-value"><a href="${escapeHtml(place.link)}" target="_blank">Obrir Ubicació ↗</a></span>
+              <div class="activity-item">
+                <span class="activity-category">🗺️ Ubicació</span>
+                <span class="activity-desc"><a href="${escapeHtml(place.link)}" target="_blank">Obrir a Google Maps ↗</a></span>
               </div>
             </div>
           `;
