@@ -2,85 +2,86 @@
 <html lang="ca">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hong Kong — Guia de Viatge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Hong Kong — Cosmopack & Guia</title>
   <style>
     :root {
-      --bg: #FBF9F5;
-      --text: #111111;
-      --muted: #555555;
-      --border: #111111;
+      --bg: #F6F7F9;
       --card-bg: #FFFFFF;
-      --font-serif: "Charter", "Bitstream Charter", "Sitka Text", "Cambria", serif;
-      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --text: #1A1D20;
+      --muted: #6C757D;
+      --accent: #1B4D3E; /* Verd elegant estil app de viatges */
+      --accent-light: #E8F0EC;
+      --border: #E9ECEF;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      -webkit-tap-highlight-color: transparent;
     }
 
     body {
       background-color: var(--bg);
       color: var(--text);
-      font-family: var(--font-serif);
-      line-height: 1.6;
-      padding: 24px 16px 48px 16px;
-      max-width: 640px;
+      font-family: var(--font-sans);
+      line-height: 1.5;
+      padding: 16px 16px 80px 16px;
+      max-width: 500px;
       margin: 0 auto;
     }
 
+    /* Encapçalament */
     header {
-      border-bottom: 2px solid var(--border);
-      padding-bottom: 16px;
-      margin-bottom: 24px;
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
     .header-titles h1 {
-      font-size: 1.6rem;
-      font-weight: 700;
+      font-size: 1.4rem;
+      font-weight: 800;
       letter-spacing: -0.02em;
-      text-transform: uppercase;
-      margin-bottom: 2px;
-    }
-
-    .subtitle {
-      font-family: var(--font-sans);
-      font-size: 0.75rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-
-    .btn-add {
-      font-family: var(--font-sans);
-      font-size: 0.8rem;
-      font-weight: 700;
-      background-color: var(--text);
-      color: var(--bg);
-      border: 1px solid var(--border);
-      padding: 8px 14px;
-      cursor: pointer;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .btn-add:active {
-      background-color: var(--bg);
       color: var(--text);
     }
 
-    /* Modal / Formulari ocult */
+    .subtitle {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 500;
+      margin-top: 2px;
+    }
+
+    .btn-add-top {
+      background-color: var(--accent-light);
+      color: var(--accent);
+      border: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 10px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Modal / Formulari */
     .modal {
       display: none;
       background: var(--card-bg);
-      border: 2px solid var(--border);
+      border-radius: 16px;
       padding: 20px;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
     }
 
     .modal.active {
@@ -89,8 +90,8 @@
 
     .modal h2 {
       font-size: 1.1rem;
-      margin-bottom: 12px;
-      text-transform: uppercase;
+      margin-bottom: 14px;
+      font-weight: 700;
     }
 
     .form-group {
@@ -99,97 +100,147 @@
 
     .form-group label {
       display: block;
-      font-family: var(--font-sans);
       font-size: 0.75rem;
+      color: var(--muted);
       text-transform: uppercase;
+      font-weight: 700;
       margin-bottom: 4px;
-      font-weight: 600;
     }
 
     .form-group input {
       width: 100%;
-      padding: 8px;
-      font-family: var(--font-serif);
+      padding: 10px 12px;
       border: 1px solid var(--border);
+      border-radius: 8px;
       background: var(--bg);
       font-size: 0.95rem;
+      color: var(--text);
+      outline: none;
     }
 
     .form-actions {
       display: flex;
       gap: 8px;
+      margin-top: 16px;
     }
 
+    .btn-submit {
+      flex: 1;
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .btn-cancel {
+      flex: 1;
+      background: var(--bg);
+      color: var(--muted);
+      border: none;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    /* Seccions */
     section {
-      margin-bottom: 36px;
+      margin-bottom: 24px;
     }
 
-    .day-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 4px;
-      margin-bottom: 16px;
+    .section-header {
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
-    }
-
-    .day-tag {
-      font-family: var(--font-sans);
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      border: 1px solid var(--border);
-      padding: 2px 6px;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      padding: 16px;
+      align-items: center;
       margin-bottom: 12px;
+      padding: 0 4px;
     }
 
-    .card h3 {
+    .section-title {
       font-size: 1.05rem;
       font-weight: 700;
-      margin-bottom: 6px;
-    }
-
-    .card p {
-      font-size: 0.95rem;
-      color: #333333;
-      margin-bottom: 12px;
-    }
-
-    .map-link {
-      display: inline-block;
-      font-family: var(--font-sans);
-      font-size: 0.8rem;
-      font-weight: 600;
       color: var(--text);
-      text-decoration: none;
-      border: 1px solid var(--border);
-      padding: 6px 12px;
-      background-color: var(--bg);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
     }
 
-    .map-link:active {
-      background-color: var(--text);
-      color: var(--bg);
+    .section-badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      background-color: var(--accent-light);
+      color: var(--accent);
+      padding: 4px 10px;
+      border-radius: 12px;
+    }
+
+    /* Targetes de llocs */
+    .card {
+      background: var(--card-bg);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 10px;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .card:active {
+      transform: scale(0.98);
+    }
+
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background-color: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .card-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .card-content h3 {
+      font-size: 0.98rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .card-content p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.3;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .card-arrow {
+      color: var(--muted);
+      font-size: 1.1rem;
+      font-weight: 700;
     }
 
     footer {
-      border-top: 1px dashed var(--border);
-      padding-top: 16px;
       text-align: center;
-      font-family: var(--font-sans);
       font-size: 0.75rem;
       color: var(--muted);
+      margin-top: 32px;
     }
   </style>
 </head>
@@ -200,124 +251,147 @@
       <h1>Hong Kong</h1>
       <div class="subtitle">Cosmopack & Guia de Tardes</div>
     </div>
-    <button class="btn-add" onclick="toggleForm()">+ Afegir</button>
+    <button class="btn-add-top" onclick="toggleForm()">+ Afegir</button>
   </header>
 
-  <!-- Formulari per afegir nous llocs -->
+  <!-- Modal Formulari -->
   <div id="addModal" class="modal">
-    <h2>Nou Lloc o Activitat</h2>
+    <h2>Afegir nou lloc</h2>
     <div class="form-group">
       <label for="inputTitle">Títol</label>
-      <input type="text" id="inputTitle" placeholder="Ex: Restaurant de Dim Sum...">
+      <input type="text" id="inputTitle" placeholder="Ex: Restaurant de Dim Sum">
     </div>
     <div class="form-group">
       <label for="inputDesc">Descripció</label>
-      <input type="text" id="inputDesc" placeholder="Ex: Molt recomanat per provar xiu mai...">
+      <input type="text" id="inputDesc" placeholder="Ex: Provar xiu mai i dumplings">
     </div>
     <div class="form-group">
-      <label for="inputLink">Link de Google Maps</label>
-      <input type="text" id="inputLink" placeholder="Ex: https://goo.gl/maps/...">
+      <label for="inputLink">Link Google Maps</label>
+      <input type="url" id="inputLink" placeholder="https://maps.google.com/...">
     </div>
     <div class="form-actions">
-      <button class="btn-add" style="flex:1;" onclick="addNewPlace()">Desar lloc</button>
-      <button class="btn-add" style="flex:1; background:var(--bg); color:var(--text);" onclick="toggleForm()">Cancel·lar</button>
+      <button class="btn-submit" onclick="addNewPlace()">Desar lloc</button>
+      <button class="btn-cancel" onclick="toggleForm()">Cancel·lar</button>
     </div>
   </div>
 
-  <!-- Apartat Dinàmic de Llocs a Visitar -->
-  <section id="customPlacesSection">
-    <div class="day-title">
-      <span>Llocs a Visitar</span>
-      <span class="day-tag">Pendents</span>
+  <!-- Llocs afegits de forma dinàmica -->
+  <section id="customSection">
+    <div class="section-header">
+      <span class="section-title">Guardats / Pendents</span>
+      <span class="section-badge">Personal</span>
     </div>
     <div id="dynamicPlacesContainer">
-      <div class="card">
-        <h3>Exemple: Restaurant Típic</h3>
-        <p>Espai reservat per a nous llocs que trobeu durant el viatge.</p>
-        <a class="map-link" href="https://maps.google.com" target="_blank">Obrir a Maps ↗</a>
-      </div>
+      <!-- Es carreguen dinàmicament aquí -->
     </div>
   </section>
 
-  <!-- Puntu Base -->
+  <!-- Matins -->
   <section>
-    <div class="day-title">
-      <span>Matins: Fira</span>
-      <span class="day-tag">Base</span>
+    <div class="section-header">
+      <span class="section-title">Matins: Fira</span>
+      <span class="section-badge">Base</span>
     </div>
-    <div class="card">
-      <h3>AsiaWorld-Expo</h3>
-      <p>Recinte firal de Cosmopack Asia, situat al costat de l'aeroport.</p>
-      <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJh5kkFNIGBDQRR8StxWm9pRs" target="_blank">Obrir a Maps ↗</a>
-    </div>
+    <a class="card" href="https://www.google.com/maps/search/?api=1&query=AsiaWorld-Expo+Hong+Kong" target="_blank">
+      <div class="card-icon">🏛️</div>
+      <div class="card-content">
+        <h3>AsiaWorld-Expo</h3>
+        <p>Recinte firal de Cosmopack Asia, situat al costat de l'aeroport.</p>
+      </div>
+      <div class="card-arrow">›</div>
+    </a>
   </section>
 
   <!-- Tarda 1 -->
   <section>
-    <div class="day-title">
-      <span>Tarda 1: Kowloon</span>
-      <span class="day-tag">Street Food</span>
+    <div class="section-header">
+      <span class="section-title">Tarda 1: Kowloon</span>
+      <span class="section-badge">Street Food</span>
     </div>
-    <div class="card">
-      <h3>Mong Kok</h3>
-      <p>Cor del carrer: Ladies' Market, roba, regals i street food.</p>
-      <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJD4HHK8YABDQRlBgIGFkqoTs" target="_blank">Obrir a Maps ↗</a>
-    </div>
-    <div class="card">
-      <h3>Temple Street Night Market</h3>
-      <p>Mercat nocturn ideal per a sopar a la fresca en un dai pai dong tradicional.</p>
-      <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Temple+Street+Night+Market+Hong+Kong" target="_blank">Obrir a Maps ↗</a>
-    </div>
+    <a class="card" href="https://www.google.com/maps/search/?api=1&query=Ladies+Market+Mong+Kok+Hong+Kong" target="_blank">
+      <div class="card-icon">🛍️</div>
+      <div class="card-content">
+        <h3>Mong Kok & Ladies' Market</h3>
+        <p>Street food (curry fish balls, bubble waffles) i paradetes de roba i regals.</p>
+      </div>
+      <div class="card-arrow">›</div>
+    </a>
+    <a class="card" href="https://www.google.com/maps/search/?api=1&query=Temple+Street+Night+Market+Hong+Kong" target="_blank">
+      <div class="card-icon">🍜</div>
+      <div class="card-content">
+        <h3>Temple Street Night Market</h3>
+        <p>Mercat nocturn ideal per sopar a la fresca en un dai pai dong tradicional.</p>
+      </div>
+      <div class="card-arrow">›</div>
+    </a>
   </section>
 
   <!-- Tarda 2 -->
   <section>
-    <div class="day-title">
-      <span>Tarda 2: Victoria Harbour</span>
-      <span class="day-tag">Skyline & Compres</span>
+    <div class="section-header">
+      <span class="section-title">Tarda 2: Victoria Harbour</span>
+      <span class="section-badge">Skyline & Compres</span>
     </div>
-    <div class="card">
-      <h3>Tsim Sha Tsui & Avenue of Stars</h3>
-      <p>Passejada davant del mar amb les millors vistes de l'skyline.</p>
-      <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJWn7gu0ABDQRBHSZg6TWKg4" target="_blank">Obrir a Maps ↗</a>
-    </div>
-    <div class="card">
-      <h3>Harbour City</h3>
-      <p>Un dels centres comercials més grans i complets de la ciutat.</p>
-      <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Harbour+City+Hong+Kong" target="_blank">Obrir a Maps ↗</a>
-    </div>
-    <div class="card">
-      <h3>K11 MUSEA</h3>
-      <p>Espai comercial avantguardista de disseny, art i compres d'alta gamma.</p>
-      <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=K11+MUSEA+Hong+Kong" target="_blank">Obrir a Maps ↗</a>
-    </div>
+    <a class="card" href="https://www.google.com/maps/search/?api=1&query=Avenue+of+Stars+Tsim+Sha+Tsui+Hong+Kong" target="_blank">
+      <div class="card-icon">🌆</div>
+      <div class="card-content">
+        <h3>Avenue of Stars & Tsim Sha Tsui</h3>
+        <p>Passejada davant del mar amb les millors vistes de l'skyline i espectacle de llums.</p>
+      </div>
+      <div class="card-arrow">›</div>
+    </a>
+    <a class="card" href="https://www.google.com/maps/search/?api=1&query=Harbour+City+Hong+Kong" target="_blank">
+      <div class="card-icon">🏬</div>
+      <div class="card-content">
+        <h3>Harbour City</h3>
+        <p>Un dels centres comercials més grans i complets de la ciutat davant del port.</p>
+      </div>
+      <div class="card-arrow">›</div>
+    </a>
+    <a class="card" href="https://www.google.com/maps/search/?api=1&query=K11+MUSEA+Hong+Kong" target="_blank">
+      <div class="card-icon">🎨</div>
+      <div class="card-content">
+        <h3>K11 MUSEA</h3>
+        <p>Espai comercial avantguardista de disseny, art i compres d'alta gamma.</p>
+      </div>
+      <div class="card-arrow">›</div>
+    </a>
   </section>
 
   <!-- Tarda 3 -->
   <section>
-    <div class="day-title">
-      <span>Tarda 3: Illa de Hong Kong</span>
-      <span class="day-tag">Vistes & Tradició</span>
+    <div class="section-header">
+      <span class="section-title">Tarda 3: Illa de Hong Kong</span>
+      <span class="section-badge">Vistes & Tradició</span>
     </div>
-    <div class="card">
-      <h3>Central & Sheung Wan</h3>
-      <p>Districte financer i històric. Contrasts de gratacels i botigues tradicionals.</p>
-      <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJvdEdo2QABDQRUrXM3junB1A" target="_blank">Obrir a Maps ↗</a>
-    </div>
-    <div class="card">
-      <h3>Graham Street Market</h3>
-      <p>Mercat tradicional de carrer al mig de l'illa.</p>
-      <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Graham+Street+Market+Hong+Kong" target="_blank">Obrir a Maps ↗</a>
-    </div>
-    <div class="card">
-      <h3>Victoria Peak</h3>
-      <p>Pujada amb el Peak Tram per veure la panoràmica nocturna de la ciutat.</p>
-      <a class="map-link" href="https://www.google.com/maps/place/?q=place_id:ChIJsd2-34n_AzQROJPZYjyLMS4" target="_blank">Obrir a Maps ↗</a>
-    </div>
+    <a class="card" href="https://www.google.com/maps/search/?api=1&query=Central+Hong+Kong" target="_blank">
+      <div class="card-icon">🏙️</div>
+      <div class="card-content">
+        <h3>Central & Sheung Wan</h3>
+        <p>Districte financer i històric. Contrasts de gratacels i botigues tradicionals.</p>
+      </div>
+      <div class="card-arrow">›</div>
+    </a>
+    <a class="card" href="https://www.google.com/maps/search/?api=1&query=Graham+Street+Market+Hong+Kong" target="_blank">
+      <div class="card-icon">🥬</div>
+      <div class="card-content">
+        <h3>Graham Street Market</h3>
+        <p>Mercat tradicional de carrer al mig dels gratacels de l'illa.</p>
+      </div>
+      <div class="card-arrow">›</div>
+    </a>
+    <a class="card" href="https://www.google.com/maps/search/?api=1&query=Victoria+Peak+Hong+Kong" target="_blank">
+      <div class="card-icon">⛰️</div>
+      <div class="card-content">
+        <h3>Victoria Peak</h3>
+        <p>Pujada amb el Peak Tram per veure la millor panoràmica nocturna de la ciutat.</p>
+      </div>
+      <div class="card-arrow">›</div>
+    </a>
   </section>
 
   <footer>
-    <p>Sense connexió • Fes clic a AFEGIR per desar nous llocs al moment</p>
+    <p>Hong Kong Trip Guide • Funciona sense connexió</p>
   </footer>
 
   <script>
@@ -326,42 +400,68 @@
       modal.classList.toggle('active');
     }
 
+    function loadPlaces() {
+      const container = document.getElementById('dynamicPlacesContainer');
+      const places = JSON.parse(localStorage.getItem('hk_places') || '[]');
+      
+      if (places.length === 0) {
+        document.getElementById('customSection').style.display = 'none';
+        return;
+      }
+      
+      document.getElementById('customSection').style.display = 'block';
+      container.innerHTML = '';
+
+      places.forEach(place => {
+        const card = document.createElement('a');
+        card.className = 'card';
+        card.href = place.link;
+        card.target = '_blank';
+        card.innerHTML = `
+          <div class="card-icon">📍</div>
+          <div class="card-content">
+            <h3>${escapeHtml(place.title)}</h3>
+            <p>${escapeHtml(place.desc)}</p>
+          </div>
+          <div class="card-arrow">›</div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
     function addNewPlace() {
       const title = document.getElementById('inputTitle').value.trim();
       const desc = document.getElementById('inputDesc').value.trim();
       let link = document.getElementById('inputLink').value.trim();
 
       if (!title) {
-        alert('Si us plau, posa un títol.');
+        alert('Si us plau, indica un títol.');
         return;
       }
 
       if (!link) {
-        link = "https://maps.google.com";
+        link = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(title + " Hong Kong")}`;
       }
 
-      const container = document.getElementById('dynamicPlacesContainer');
-      
-      const card = document.createElement('div');
-      card.className = 'card';
-      card.innerHTML = `
-        <h3>${escapeHtml(title)}</h3>
-        <p>${escapeHtml(desc)}</p>
-        <a class="map-link" href="${escapeHtml(link)}" target="_blank">Obrir a Maps ↗</a>
-      `;
-      
-      container.prepend(card);
+      const places = JSON.parse(localStorage.getItem('hk_places') || '[]');
+      places.unshift({ title, desc, link });
+      localStorage.setItem('hk_places', JSON.stringify(places));
 
-      // Netejar inputs i tancar modal
+      // Reset
       document.getElementById('inputTitle').value = '';
       document.getElementById('inputDesc').value = '';
       document.getElementById('inputLink').value = '';
+      
       toggleForm();
+      loadPlaces();
     }
 
     function escapeHtml(text) {
       return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
     }
+
+    // Carregar en iniciar
+    loadPlaces();
   </script>
 
 </body>
