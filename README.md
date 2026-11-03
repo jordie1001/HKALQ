@@ -1,2 +1,2 @@
-# diaadia
-taulell de coses del nostre dia a dia
+# hongkong
+taulell de coses a fer a HK
