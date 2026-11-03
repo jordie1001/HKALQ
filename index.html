@@ -12,12 +12,12 @@
       --text-muted: #6C757D;
       --border-color: #E2E8F0;
       
-      --color-day1: #FF6B6B; /* DÍA 09 */
-      --color-day2: #FFB84D; /* DÍA 10 */
-      --color-day3: #6BCB77; /* DÍA 11 */
-      --color-day4: #4D96FF; /* DÍA 12 */
-      --color-day5: #9B51E0; /* DÍA 13 */
-      --color-day6: #E87ABF; /* DÍA 14 */
+      --color-day1: #FF6B6B; /* DIA 09 */
+      --color-day2: #FFB84D; /* DIA 10 */
+      --color-day3: #6BCB77; /* DIA 11 */
+      --color-day4: #4D96FF; /* DIA 12 */
+      --color-day5: #9B51E0; /* DIA 13 */
+      --color-day6: #E87ABF; /* DIA 14 */
       --color-custom: #00B4D8; /* EXTRA */
 
       --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -40,11 +40,40 @@
       margin: 0 auto;
     }
 
+    /* Títol superior del tot */
+    .top-main-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--bg);
+      margin: 8px 0 14px 0;
+    }
+
+    /* Contenidor de Banner / Imatge */
+    .hero-banner {
+      width: 100%;
+      height: 160px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      position: relative;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .hero-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
     header {
       background: var(--bg);
       color: #FFFFFF;
       border-radius: 12px;
-      padding: 20px;
+      padding: 16px 20px;
       margin-bottom: 16px;
       display: flex;
       justify-content: space-between;
@@ -52,8 +81,8 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
-    .header-titles h1 {
-      font-size: 1.3rem;
+    .header-titles h2 {
+      font-size: 1.1rem;
       font-weight: 800;
       letter-spacing: 0.05em;
       text-transform: uppercase;
@@ -63,7 +92,7 @@
     .header-titles .subtitle {
       font-size: 0.75rem;
       color: #A0AEC0;
-      margin-top: 4px;
+      margin-top: 2px;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
@@ -262,10 +291,18 @@
 </head>
 <body>
 
+  <!-- Títol Superior -->
+  <h1 class="top-main-title">HONG KONG</h1>
+
+  <!-- Imatge Unsplash Segura i Lliure -->
+  <div class="hero-banner">
+    <img src="https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?auto=format&fit=crop&w=1000&q=80" alt="Hong Kong Neons">
+  </div>
+
   <header>
     <div class="header-titles">
-      <h1>Planificador d'itinerari</h1>
-      <div class="subtitle">Hong Kong</div>
+      <h2>Planificador d'itinerari</h2>
+      <div class="subtitle">Guia de viatge</div>
     </div>
     <button class="btn-add-top" onclick="toggleForm()">+ Afegir</button>
   </header>
@@ -292,7 +329,7 @@
 
   <div id="customContainer"></div>
 
-  <!-- DÍA 09 -->
+  <!-- DIA 09 -->
   <div class="day-row">
     <div class="day-badge bg-day1">
       <span class="day-label">DIA</span>
@@ -318,7 +355,7 @@
     </div>
   </div>
 
-  <!-- DÍA 10 -->
+  <!-- DIA 10 -->
   <div class="day-row">
     <div class="day-badge bg-day2">
       <span class="day-label">DIA</span>
@@ -348,7 +385,7 @@
     </div>
   </div>
 
-  <!-- DÍA 11 -->
+  <!-- DIA 11 -->
   <div class="day-row">
     <div class="day-badge bg-day3">
       <span class="day-label">DIA</span>
@@ -374,7 +411,7 @@
     </div>
   </div>
 
-  <!-- DÍA 12 -->
+  <!-- DIA 12 -->
   <div class="day-row">
     <div class="day-badge bg-day4">
       <span class="day-label">DIA</span>
@@ -400,7 +437,7 @@
     </div>
   </div>
 
-  <!-- DÍA 13 -->
+  <!-- DIA 13 -->
   <div class="day-row">
     <div class="day-badge bg-day5">
       <span class="day-label">DIA</span>
@@ -426,7 +463,7 @@
     </div>
   </div>
 
-  <!-- DÍA 14 -->
+  <!-- DIA 14 -->
   <div class="day-row">
     <div class="day-badge bg-day6">
       <span class="day-label">DIA</span>
@@ -449,7 +486,7 @@
   </div>
 
   <footer>
-    <p>Planificador d'itinerarig • Hong Kong</p>
+    <p>Planificador d'itinerari • Hong Kong</p>
   </footer>
 
   <script>
