@@ -40,7 +40,7 @@
       margin: 0 auto;
     }
 
-    /* Títol superior del tot */
+    /* Títol Superior */
     .top-main-title {
       text-align: center;
       font-size: 2rem;
@@ -54,12 +54,13 @@
     /* Contenidor de Banner / Imatge */
     .hero-banner {
       width: 100%;
-      height: 160px;
+      height: 180px;
       border-radius: 12px;
       overflow: hidden;
       margin-bottom: 16px;
       position: relative;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      background-color: #111;
     }
 
     .hero-banner img {
@@ -294,9 +295,11 @@
   <!-- Títol Superior -->
   <h1 class="top-main-title">HONG KONG</h1>
 
-  <!-- Imatge Unsplash Segura i Lliure -->
+  <!-- Imatge amb fallback automàtic -->
   <div class="hero-banner">
-    <img src="https://unsplash.com/es/fotos/carteles-de-neon-en-la-mojada-calle-de-hong-kong-DdQkVaQbSsg?auto=format&fit=crop&w=1000&q=80" alt="Hong Kong Neons">
+    <img src="https://images.unsplash.com/photo-1518599808936-ce80415d9090?auto=format&fit=crop&w=800&q=80" 
+         alt="Hong Kong Neons" 
+         onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Hong_Kong_Neon_Signs_Mong_Kok.jpg/800px-Hong_Kong_Neon_Signs_Mong_Kok.jpg';">
   </div>
 
   <header>
