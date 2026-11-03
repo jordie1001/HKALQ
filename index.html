@@ -18,7 +18,6 @@
       --color-day4: #4D96FF; /* DIA 12 */
       --color-day5: #9B51E0; /* DIA 13 */
       --color-day6: #E87ABF; /* DIA 14 */
-      --color-custom: #00B4D8; /* EXTRA */
 
       --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
@@ -40,179 +39,76 @@
       margin: 0 auto;
     }
 
-    .top-main-title {
+    /* CAPÇALERA CREATIVA HONG KONG */
+    .hero-header {
+      background: linear-gradient(135deg, #0B0F17 0%, #171E2B 100%);
+      border-radius: 16px;
+      padding: 28px 20px 24px 20px;
+      margin-bottom: 20px;
       text-align: center;
-      font-size: 2rem;
-      font-weight: 900;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--bg);
-      margin: 8px 0 14px 0;
-    }
-
-    .hero-banner {
-      width: 100%;
-      height: 140px;
-      border-radius: 12px;
-      margin-bottom: 16px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(135deg, #0F172A 0%, #1E1B4B 50%, #31103A 100%);
-      border: 2px solid #374151;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
       position: relative;
       overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    .hero-banner::before {
+    /* Brillantor subtil de fons */
+    .hero-header::before {
       content: "";
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: radial-gradient(circle at 20% 50%, rgba(232, 122, 191, 0.25) 0%, transparent 60%),
-                  radial-gradient(circle at 80% 50%, rgba(0, 180, 216, 0.25) 0%, transparent 60%);
+      top: -40%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, rgba(255, 107, 107, 0.25) 0%, rgba(155, 81, 224, 0.15) 50%, transparent 70%);
       pointer-events: none;
     }
 
-    .hero-banner h3 {
-      color: #FFFFFF;
-      font-size: 1.15rem;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+    .hero-title-group {
+      position: relative;
       z-index: 1;
-      margin-bottom: 4px;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-    }
-
-    .hero-banner p {
-      color: #E2E8F0;
-      font-size: 0.78rem;
-      z-index: 1;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-weight: 600;
-    }
-
-    header {
-      background: var(--bg);
-      color: #FFFFFF;
-      border-radius: 12px;
-      padding: 16px 20px;
-      margin-bottom: 16px;
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      justify-content: center;
     }
 
-    .header-titles h2 {
-      font-size: 1.1rem;
-      font-weight: 800;
-      letter-spacing: 0.05em;
+    /* Caràcters Xinesos */
+    .chinese-title {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #FF5E7E;
+      letter-spacing: 0.2em;
+      line-height: 1;
+      margin-bottom: 4px;
+      text-shadow: 0 0 12px rgba(255, 94, 126, 0.6), 0 0 24px rgba(255, 94, 126, 0.3);
+      font-family: "PingFang HK", "Traditional Chinese", "Microsoft JhengHei", sans-serif;
+    }
+
+    /* Títol Gran amb Kerning molt estret */
+    .top-main-title {
+      font-size: 3.2rem;
+      font-weight: 900;
+      letter-spacing: -0.04em; /* Kerning molt estret */
       text-transform: uppercase;
-      line-height: 1.1;
+      color: #FFFFFF;
+      line-height: 0.95;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      margin: 2px 0 6px 0;
     }
 
-    .header-titles .subtitle {
-      font-size: 0.75rem;
+    .subtitle-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
       color: #A0AEC0;
-      margin-top: 2px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .btn-add-top {
-      background-color: #FFFFFF;
-      color: var(--bg);
-      border: none;
-      font-size: 0.8rem;
-      font-weight: 800;
-      padding: 8px 14px;
-      border-radius: 20px;
-      cursor: pointer;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .btn-add-top:active {
-      transform: scale(0.95);
-    }
-
-    .modal {
-      display: none;
-      background: var(--card-bg);
-      border-radius: 12px;
-      padding: 16px;
-      margin-bottom: 16px;
-      border: 2px solid var(--bg);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    }
-
-    .modal.active {
-      display: block;
-    }
-
-    .modal h2 {
-      font-size: 1rem;
-      margin-bottom: 12px;
-      text-transform: uppercase;
-      font-weight: 800;
-    }
-
-    .form-group {
-      margin-bottom: 10px;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 0.7rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      font-weight: 700;
-      margin-bottom: 3px;
-    }
-
-    .form-group input {
-      width: 100%;
-      padding: 8px 10px;
-      border: 1px solid var(--border-color);
-      border-radius: 6px;
-      font-size: 0.9rem;
-      outline: none;
-    }
-
-    .form-actions {
-      display: flex;
-      gap: 8px;
-      margin-top: 14px;
-    }
-
-    .btn-submit {
-      flex: 1;
-      background: var(--bg);
-      color: white;
-      border: none;
-      padding: 8px;
-      border-radius: 6px;
-      font-weight: 700;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      cursor: pointer;
-    }
-
-    .btn-cancel {
-      flex: 1;
-      background: #EDF2F7;
-      color: var(--text-muted);
-      border: none;
-      padding: 8px;
-      border-radius: 6px;
-      font-weight: 700;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      cursor: pointer;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      padding-top: 8px;
+      margin-top: 4px;
+      width: 80%;
     }
 
     .day-row {
@@ -303,7 +199,6 @@
     .bg-day4 { background-color: var(--color-day4); }
     .bg-day5 { background-color: var(--color-day5); }
     .bg-day6 { background-color: var(--color-day6); }
-    .bg-custom { background-color: var(--color-custom); }
 
     footer {
       text-align: center;
@@ -317,42 +212,14 @@
 </head>
 <body>
 
-  <h1 class="top-main-title">HONG KONG</h1>
-
-  <div class="hero-banner">
-    <h3>✨ Cosmopack Asia & Itinerari</h3>
-    <p>Novembre 2026 • 9 - 14</p>
-  </div>
-
-  <header>
-    <div class="header-titles">
-      <h2>Planificador d'itinerari</h2>
-      <div class="subtitle">Guia de viatge</div>
+  <!-- NOVA CAPÇALERA CREATIVA HONG KONG -->
+  <header class="hero-header">
+    <div class="hero-title-group">
+      <div class="chinese-title">香港</div>
+      <h1 class="top-main-title">HONGKONG</h1>
+      <div class="subtitle-badge">Planificador d'itinerari</div>
     </div>
-    <button class="btn-add-top" onclick="toggleForm()">+ Afegir</button>
   </header>
-
-  <div id="addModal" class="modal">
-    <h2>Afegir Nou Lloc / Activitat</h2>
-    <div class="form-group">
-      <label for="inputTitle">Títol o Destí</label>
-      <input type="text" id="inputTitle" placeholder="Ex: Diners Dim Sum">
-    </div>
-    <div class="form-group">
-      <label for="inputDesc">Descripció / Detalls</label>
-      <input type="text" id="inputDesc" placeholder="Ex: Provar Xiulongbao">
-    </div>
-    <div class="form-group">
-      <label for="inputLink">Link Google Maps</label>
-      <input type="url" id="inputLink" placeholder="https://maps.google.com/...">
-    </div>
-    <div class="form-actions">
-      <button id="btnSubmit" class="btn-submit" onclick="addNewPlace()">Desar</button>
-      <button class="btn-cancel" onclick="toggleForm()">Cancel·lar</button>
-    </div>
-  </div>
-
-  <div id="customContainer"></div>
 
   <!-- DIA 09 -->
   <div class="day-row">
@@ -389,23 +256,27 @@
     <div class="day-content">
       <div class="activity-item">
         <span class="activity-category">🏛️ Fira & Visitar</span>
-        <span class="activity-desc">Arribada 08:30h a HK (Terminal 1) ➔ <a href="https://www.google.com/maps/search/?api=1&query=AsiaWorld-Expo+Hong+Kong" target="_blank">AsiaWorld-Expo ↗</a></span>
+        <span class="activity-desc">Arribada 08:30h a HK ➔ <a href="https://www.google.com/maps/search/?api=1&query=AsiaWorld-Expo+Hong+Kong" target="_blank">AsiaWorld-Expo ↗</a> (Jornada de fira)</span>
       </div>
       <div class="activity-item">
-        <span class="activity-category">🛍️ Comprar</span>
-        <span class="activity-desc"><a href="https://www.google.com/maps/search/?api=1&query=Ladies+Market+Mong+Kok+Hong+Kong" target="_blank">Mong Kok & Ladies' Market ↗</a></span>
+        <span class="activity-category">🚕 Trasllat Hotel (17:00h)</span>
+        <span class="activity-desc">Sortida de la fira a les 17:00h cap a <a href="https://www.google.com/maps/dir/AsiaWorld-Expo,+1%E8%99%9F+Airport+Expo+Boulevard,+Chek+Lap+Kok,+Hong+Kong/Hopewell+Hotel,+15+Kennedy+Road,+Wan+Chai,+Hong+Kong/data=!3m1!4b1!4m14!4m13!1m5!1m1!19sChIJh5kkFNIGBDQRR8StxWm9pRs!2m2!1d113.943288!2d22.321343!1m5!1m1!19sChIJGfIsREIBBDQRKJq7LwhU2fE!2m2!1d114.17076189999999!2d22.2749469!3e3" target="_blank">Hopewell Hotel (Wan Chai) ↗</a> [<a href="https://www.google.com/maps/dir/AsiaWorld-Expo,+1%E8%99%9F+Airport+Expo+Boulevard,+Chek+Lap+Kok,+Hong+Kong/Hopewell+Hotel,+15+Kennedy+Road,+Wan+Chai,+Hong+Kong/data=!3m1!4b1!4m14!4m13!1m5!1m1!19sChIJh5kkFNIGBDQRR8StxWm9pRs!2m2!1d113.943288!2d22.321343!1m5!1m1!19sChIJGfIsREIBBDQRKJq7LwhU2fE!2m2!1d114.17076189999999!2d22.2749469!3e0" target="_blank">Mapa Cotxe ↗</a>]</span>
+      </div>
+      <div class="activity-item">
+        <span class="activity-category">🚆 Opcions de Transport</span>
+        <span class="activity-desc"><strong>Opció MTR (Públic):</strong> Airport Express des de l'estació de l'aeroport fins a Hong Kong Station + Taxi curt o metro fins a Wan Chai (~1h, aprox. 115–120 HKD / ~14€ per persona).<br><strong>Opció Taxi privat:</strong> Directe des de la fira fins a Wan Chai (~33 min, aprox. 250–350 HKD / ~30–40€ ideal si porteu moltes maletes).</span>
+      </div>
+      <div class="activity-item">
+        <span class="activity-category">🛍️ Comprar & Oci</span>
+        <span class="activity-desc">Un cop deixades les maletes a l'hotel, passejada per <a href="https://www.google.com/maps/search/?api=1&query=Ladies+Market+Mong+Kok+Hong+Kong" target="_blank">Mong Kok & Ladies' Market ↗</a></span>
       </div>
       <div class="activity-item">
         <span class="activity-category">🍜 Menjar</span>
         <span class="activity-desc"><a href="https://www.google.com/maps/search/?api=1&query=Temple+Street+Night+Market+Hong+Kong" target="_blank">Temple Street Night Market (Dai Pai Dong) ↗</a></span>
       </div>
       <div class="activity-item">
-        <span class="activity-category">📷 Fotografia / Oci</span>
-        <span class="activity-desc">Street food local (curry fish balls i bubble waffles) a Mong Kok.</span>
-      </div>
-      <div class="activity-item">
         <span class="activity-category">💡 Jetlag / Descans</span>
-        <span class="activity-desc jetlag-tip">Prohibit fer migdiada al matí! Aguantar desperts fins a les 22:00h hora local.</span>
+        <span class="activity-desc jetlag-tip">Prohibit fer migdiada! Aguantar desperts fins a les 22:00h hora local.</span>
       </div>
     </div>
   </div>
@@ -513,107 +384,6 @@
   <footer>
     <p>Planificador d'itinerari • Hong Kong</p>
   </footer>
-
-  <script>
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz7Dy99UD0XCrFfYKkfRSZ1cqLOadxI1MYHxydkXAqtxZeo5sro0z2xZcb3vp1Jj0Pg/exec";
-
-    function toggleForm() {
-      const modal = document.getElementById('addModal');
-      modal.classList.toggle('active');
-    }
-
-    async function loadPlaces() {
-      const container = document.getElementById('customContainer');
-      try {
-        const res = await fetch(SCRIPT_URL);
-        const places = await res.json();
-        
-        container.innerHTML = '';
-        places.forEach((place, index) => {
-          const row = document.createElement('div');
-          row.className = 'day-row';
-          row.innerHTML = `
-            <div class="day-badge bg-custom">
-              <span class="day-label">EXTRA</span>
-              <span class="day-num">+${index + 1}</span>
-            </div>
-            <div class="day-content">
-              <div class="activity-item">
-                <span class="activity-category">📍 Destí Compartit</span>
-                <span class="activity-desc"><strong>${escapeHtml(place.title)}</strong></span>
-              </div>
-              <div class="activity-item">
-                <span class="activity-category">📝 Detalls</span>
-                <span class="activity-desc">${escapeHtml(place.desc)}</span>
-              </div>
-              <div class="activity-item">
-                <span class="activity-category">🗺️ Ubicació</span>
-                <span class="activity-desc"><a href="${escapeHtml(place.link)}" target="_blank">Obrir a Google Maps ↗</a></span>
-              </div>
-            </div>
-          `;
-          container.appendChild(row);
-        });
-      } catch (e) {
-        console.error("Error carregant del full:", e);
-      }
-    }
-
-    async function addNewPlace() {
-      const title = document.getElementById('inputTitle').value.trim();
-      const desc = document.getElementById('inputDesc').value.trim();
-      let link = document.getElementById('inputLink').value.trim();
-
-      if (!title) {
-        alert('Si us plau, posa un títol.');
-        return;
-      }
-
-      if (!link) {
-        link = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(title + " Hong Kong")}`;
-      }
-
-      const btn = document.getElementById('btnSubmit');
-      btn.innerText = "Desant...";
-      btn.disabled = true;
-
-      try {
-        // Enviament mitjançant URL-encoded per evitar bloquejos de CORS/JSON a Apps Script
-        const formData = new URLSearchParams();
-        formData.append('title', title);
-        formData.append('desc', desc);
-        formData.append('link', link);
-
-        await fetch(SCRIPT_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          body: formData
-        });
-
-        document.getElementById('inputTitle').value = '';
-        document.getElementById('inputDesc').value = '';
-        document.getElementById('inputLink').value = '';
-        
-        toggleForm();
-        
-        // Recarrega el llistat automàticament passat 1.5 segons
-        setTimeout(loadPlaces, 1500);
-      } catch (e) {
-        alert("S'ha desat correctament!");
-        toggleForm();
-      } finally {
-        btn.innerText = "Desar";
-        btn.disabled = false;
-      }
-    }
-
-    function escapeHtml(text) {
-      if (!text) return '';
-      return text.toString().replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
-    }
-
-    loadPlaces();
-  </script>
 
 </body>
 </html>
